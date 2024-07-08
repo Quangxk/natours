@@ -1,0 +1,10 @@
+const express = require('express');
+const morgan = require('morgan');
+const app = express();
+app.use(express.json());
+const toursRouter = require(`${__dirname}/routes/tours`);
+const usersRouter = require(`${__dirname}/routes/users`);
+app.use('/api/v1/tours', toursRouter);
+app.use('/api/v1/users', usersRouter);
+app.use(morgan('dev'));
+module.exports = app;
